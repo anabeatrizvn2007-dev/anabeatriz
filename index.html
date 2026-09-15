@@ -1,0 +1,1078 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mavi | Portfólio</title>
+
+  <meta name="description" content="Portfólio pessoal de Mavi. Tecnologia, criatividade e projetos.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fffaff;
+      --card: #ffffff;
+      --text: #25202c;
+      --muted: #746b7c;
+      --pink: #c75d9b;
+      --pink-light: #fce9f4;
+      --purple: #8264bd;
+      --border: #f0e5f0;
+      --shadow: 0 15px 45px rgba(102, 54, 105, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    /* NAVEGAÇÃO */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 250, 255, 0.93);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--pink);
+    }
+
+    .logo span {
+      color: var(--purple);
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .links a:hover {
+      color: var(--pink);
+    }
+
+    .menu-btn {
+      display: none;
+      background: var(--pink-light);
+      color: var(--pink);
+      border: 0;
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-size: 22px;
+    }
+
+    /* GERAL */
+
+    section {
+      padding: 95px 0;
+    }
+
+    .tag {
+      color: var(--pink);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+    }
+
+    h1, h2 {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 47px);
+      margin: 13px 0 18px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 570px;
+    }
+
+    .section-heading {
+      margin-bottom: 38px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: #f9e5f3;
+      filter: blur(10px);
+      top: -180px;
+      right: -100px;
+      z-index: -1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(43px, 6vw, 73px);
+      margin: 18px 0;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 em {
+      color: var(--pink);
+      font-style: italic;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 500px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 23px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(110deg, var(--pink), var(--purple));
+      box-shadow: 0 8px 22px rgba(199, 93, 155, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border: 1px solid #e2cfe3;
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      background: var(--pink-light);
+    }
+
+    /* CARD DE PERFIL */
+
+    .profile-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 38px 28px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .profile-circle {
+      width: 145px;
+      height: 145px;
+      border-radius: 50%;
+      margin: 0 auto 22px;
+      background: linear-gradient(135deg, #f9d5e8, #d8c8f0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Playfair Display", serif;
+      font-size: 56px;
+      color: #88527f;
+      border: 7px solid #fff7fc;
+      box-shadow: 0 0 0 1px var(--border);
+    }
+
+    .profile-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 29px;
+      margin-bottom: 4px;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .profile-card .mini {
+      display: inline-block;
+      background: var(--pink-light);
+      color: var(--pink);
+      padding: 5px 13px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 18px;
+    }
+
+    .sparkle {
+      position: absolute;
+      color: #d49ac6;
+      font-size: 24px;
+    }
+
+    .sparkle.one {
+      top: 22px;
+      left: 28px;
+    }
+
+    .sparkle.two {
+      bottom: 32px;
+      right: 30px;
+    }
+
+    /* SOBRE */
+
+    .about {
+      background: #fff;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .about-quote {
+      background: linear-gradient(145deg, #fff1f8, #f7f1ff);
+      padding: 32px;
+      border-radius: 24px;
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      line-height: 1.4;
+      color: #67436b;
+      position: relative;
+    }
+
+    .about-quote::before {
+      content: "“";
+      font-size: 70px;
+      position: absolute;
+      top: -25px;
+      left: 18px;
+      color: #d9a7d0;
+    }
+
+    .about-quote p {
+      margin-top: 15px;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 17px;
+    }
+
+    .facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 25px;
+    }
+
+    .fact {
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 7px 13px;
+      font-size: 12px;
+      color: var(--muted);
+      background: #fffaff;
+    }
+
+    /* HABILIDADES */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 25px;
+      border-radius: 20px;
+      transition: 0.25s;
+    }
+
+    .skill:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--pink-light);
+      font-size: 23px;
+      margin-bottom: 17px;
+    }
+
+    .skill h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .skill p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* PROJETOS */
+
+    .projects {
+      background: #fff;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      background: var(--card);
+      transition: 0.25s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-cover {
+      height: 170px;
+      background: linear-gradient(135deg, #f8dce9, #e8ddf9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Playfair Display", serif;
+      font-size: 50px;
+      color: #99658f;
+    }
+
+    .project-cover.purple {
+      background: linear-gradient(135deg, #e4daf8, #f5e1ee);
+    }
+
+    .project-cover.blue {
+      background: linear-gradient(135deg, #d9ebf7, #e5ddf9);
+    }
+
+    .project-cover.green {
+      background: linear-gradient(135deg, #e0f1e7, #f6e9da);
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project h3 {
+      font-size: 20px;
+      margin-bottom: 9px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .project-tag {
+      font-size: 11px;
+      color: var(--pink);
+      font-weight: 700;
+      background: var(--pink-light);
+      padding: 5px 9px;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--pink);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* OBJETIVOS */
+
+    .goals {
+      background: linear-gradient(145deg, #fdf0f8, #f7f2ff);
+    }
+
+    .goals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .goal {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: 20px;
+      padding: 25px;
+    }
+
+    .goal-number {
+      color: var(--pink);
+      font-family: "Playfair Display", serif;
+      font-size: 35px;
+      font-style: italic;
+    }
+
+    .goal h3 {
+      font-size: 17px;
+      margin: 12px 0 8px;
+    }
+
+    .goal p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* CONTATO */
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact .section-intro {
+      margin: 0 auto 30px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .social {
+      padding: 12px 20px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      background: #fff;
+      transition: 0.2s;
+    }
+
+    .social:hover {
+      background: var(--pink-light);
+      color: var(--pink);
+    }
+
+    /* RODAPÉ */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: var(--pink);
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 800px) {
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero {
+        padding-top: 55px;
+        min-height: auto;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .profile-card {
+        max-width: 390px;
+        margin: auto;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .goals-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: #fffaff;
+        border-bottom: 1px solid var(--border);
+        padding: 25px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .links.open {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 500px) {
+      section {
+        padding: 65px 0;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .skills-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-quote {
+        font-size: 23px;
+      }
+
+      .profile-card {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVEGAÇÃO -->
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#inicio" class="logo">mavi<span>.</span></a>
+
+        <div class="links" id="navLinks">
+          <a href="#sobre">Sobre mim</a>
+          <a href="#habilidades">Habilidades</a>
+          <a href="#projetos">Projetos</a>
+          <a href="#objetivos">Objetivos</a>
+          <a href="#contato">Contato</a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
+          ☰
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- INÍCIO -->
+
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+
+        <div>
+          <span class="tag">Olá, eu sou a Mavi ✦</span>
+
+          <h1>
+            Criatividade,<br>
+            tecnologia &<br>
+            <em>grandes sonhos.</em>
+          </h1>
+
+          <p>
+            Sou uma jovem apaixonada por tecnologia, design e tudo que
+            me permite criar. Este é o meu espaço para compartilhar
+            minha jornada, meus projetos e os sonhos que estou
+            construindo.
+          </p>
+
+          <div class="buttons">
+            <a href="#projetos" class="btn btn-primary">
+              Conheça meus projetos →
+            </a>
+
+            <a href="#sobre" class="btn btn-outline">
+              Sobre mim
+            </a>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <span class="sparkle one">✦</span>
+          <span class="sparkle two">✧</span>
+
+          <div class="profile-circle">M</div>
+
+          <h3>Mavi</h3>
+          <p>Estudante de tecnologia</p>
+          <p>Criativa • Sonhadora • Dedicada</p>
+
+          <span class="mini">Construindo meu futuro ♡</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SOBRE MIM -->
+
+    <section class="about" id="sobre">
+      <div class="container about-grid">
+
+        <div class="about-quote">
+          <p>
+            “Tudo começa com uma ideia.
+            O importante é ter coragem
+            para transformá-la em realidade.”
+          </p>
+        </div>
+
+        <div class="about-text">
+          <span class="tag">01 — Sobre mim</span>
+
+          <h2>Um pouco sobre quem sou.</h2>
+
+          <p>
+            Sou uma jovem que está construindo seu caminho no mundo
+            da tecnologia. Gosto de aprender coisas novas, explorar
+            minha criatividade e transformar ideias em projetos.
+          </p>
+
+          <p>
+            Tenho interesse em programação, desenvolvimento web,
+            design, marketing digital e inteligência artificial.
+            Acredito que cada habilidade aprendida é mais um passo
+            em direção ao futuro que quero construir.
+          </p>
+
+          <p>
+            Também gosto de esportes, especialmente vôlei e natação,
+            e de descobrir novas formas de me expressar.
+          </p>
+
+          <div class="facts">
+            <span class="fact">💻 Tecnologia</span>
+            <span class="fact">🎨 Criatividade</span>
+            <span class="fact">📚 Aprendizado</span>
+            <span class="fact">🏐 Esportes</span>
+            <span class="fact">🌎 Novos idiomas</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+
+    <section id="habilidades">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="tag">02 — O que faço</span>
+          <h2>Minhas habilidades.</h2>
+          <p class="section-intro">
+            Conhecimentos que estou desenvolvendo e que fazem parte
+            da minha jornada de aprendizado.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+
+          <div class="skill">
+            <div class="skill-icon">🌐</div>
+            <h3>Desenvolvimento web</h3>
+            <p>
+              HTML e CSS para criar páginas bonitas, organizadas
+              e responsivas.
+            </p>
+          </div>
+
+          <div class="skill">
+            <div class="skill-icon">💻</div>
+            <h3>Programação</h3>
+            <p>
+              Conhecimentos básicos de Java e Python,
+              desenvolvendo minha lógica de programação.
+            </p>
+          </div>
+
+          <div class="skill">
+            <div class="skill-icon">🎨</div>
+            <h3>Design e criatividade</h3>
+            <p>
+              Interesse em identidade visual, criação de artes,
+              edição e projetos digitais.
+            </p>
+          </div>
+
+          <div class="skill">
+            <div class="skill-icon">📱</div>
+            <h3>Marketing digital</h3>
+            <p>
+              Interesse em redes sociais, conteúdo, estratégias
+              digitais e crescimento de marcas.
+            </p>
+          </div>
+
+          <div class="skill">
+            <div class="skill-icon">🌎</div>
+            <h3>Idiomas</h3>
+            <p>
+              Português e espanhol, com vontade de aprender
+              cada vez mais idiomas.
+            </p>
+          </div>
+
+          <div class="skill">
+            <div class="skill-icon">✨</div>
+            <h3>Aprendizado contínuo</h3>
+            <p>
+              Sempre buscando aprender, melhorar e transformar
+              ideias em algo real.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+
+    <section class="projects" id="projetos">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="tag">03 — Meu trabalho</span>
+          <h2>Projetos & ideias.</h2>
+          <p class="section-intro">
+            Projetos que representam minha criatividade e tudo
+            que estou aprendendo a construir.
+          </p>
+        </div>
+
+        <div class="project-grid">
+
+          <article class="project">
+            <div class="project-cover">✦</div>
+
+            <div class="project-content">
+              <h3>Pulse</h3>
+
+              <p>
+                Uma ideia de aplicativo que estou desenvolvendo
+                para explorar novas possibilidades no mundo digital.
+              </p>
+
+              <span class="project-tag">Ideia de startup</span>
+              <span class="project-tag">Tecnologia</span>
+
+              <br>
+
+              <a href="#" class="project-link"
+                 onclick="return false;">
+                Em desenvolvimento ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-cover purple">{"</>"}</div>
+
+            <div class="project-content">
+              <h3>Meus primeiros códigos</h3>
+
+              <p>
+                Exercícios e projetos de programação desenvolvidos
+                durante meus estudos de lógica, Java e Python.
+              </p>
+
+              <span class="project-tag">Java</span>
+              <span class="project-tag">Python</span>
+
+              <br>
+
+              <a href="#" class="project-link"
+                 onclick="return false;">
+                Em desenvolvimento ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-cover blue">✧</div>
+
+            <div class="project-content">
+              <h3>Design & conteúdo</h3>
+
+              <p>
+                Criações visuais, ideias para redes sociais,
+                identidade visual e projetos criativos.
+              </p>
+
+              <span class="project-tag">Design</span>
+              <span class="project-tag">Criatividade</span>
+
+              <br>
+
+              <a href="#" class="project-link"
+                 onclick="return false;">
+                Em desenvolvimento ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-cover green">♡</div>
+
+            <div class="project-content">
+              <h3>Projetos pessoais</h3>
+
+              <p>
+                Um espaço para reunir experiências, estudos e
+                novas ideias que fazem parte da minha evolução.
+              </p>
+
+              <span class="project-tag">Portfólio</span>
+              <span class="project-tag">Estudos</span>
+
+              <br>
+
+              <a href="#" class="project-link"
+                 onclick="return false;">
+                Em desenvolvimento ↗
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- OBJETIVOS -->
+
+    <section class="goals" id="objetivos">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="tag">04 — Meu futuro</span>
+          <h2>Onde quero chegar.</h2>
+          <p class="section-intro">
+            Sonhos que me motivam a continuar aprendendo e
+            construindo meu próprio caminho.
+          </p>
+        </div>
+
+        <div class="goals-grid">
+
+          <div class="goal">
+            <span class="goal-number">01.</span>
+            <h3>Crescer na tecnologia</h3>
+            <p>
+              Aprofundar meus conhecimentos em programação,
+              desenvolvimento e inovação.
+            </p>
+          </div>
+
+          <div class="goal">
+            <span class="goal-number">02.</span>
+            <h3>Conquistar independência</h3>
+            <p>
+              Desenvolver minhas habilidades, conquistar
+              oportunidades e construir minha liberdade.
+            </p>
+          </div>
+
+          <div class="goal">
+            <span class="goal-number">03.</span>
+            <h3>Realizar grandes sonhos</h3>
+            <p>
+              Conhecer o mundo, aprender novos idiomas e
+              criar uma vida da qual eu me orgulhe.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+
+    <section class="contact" id="contato">
+      <div class="container">
+
+        <span class="tag">05 — Vamos conversar</span>
+
+        <h2>Vamos criar algo incrível?</h2>
+
+        <p class="section-intro">
+          Este é apenas o começo da minha jornada.
+          Você pode acompanhar meus projetos e conhecer
+          mais sobre o meu trabalho.
+        </p>
+
+        <div class="socials">
+          <!-- TROQUE OS LINKS PELOS SEUS -->
+
+          <a class="social"
+             href="https://github.com/"
+             target="_blank"
+             rel="noopener">
+            GitHub ↗
+          </a>
+
+          <a class="social"
+             href="https://instagram.com/"
+             target="_blank"
+             rel="noopener">
+            Instagram ↗
+          </a>
+
+          <a class="social"
+             href="mailto:seuemail@email.com">
+            E-mail ✉
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+
+  <footer>
+    <div class="container">
+      Feito com <strong>♡</strong> por Mavi ·
+      <span id="year"></span>
+    </div>
+  </footer>
+
+  <script>
+    // Atualiza o ano automaticamente
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Menu para celular
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuBtn.setAttribute("aria-expanded", isOpen);
+      menuBtn.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Fecha o menu ao clicar em um link
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+      });
+    });
+  </script>
+
+</body>
+</html>
